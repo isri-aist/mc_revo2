@@ -1,0 +1,6 @@
+#pragma once
+
+namespace mc_rtc
+{
+  constexpr auto REVO2_DESCRIPTION_PATH = "@REVO2_DESCRIPTION_PATH@";
+}
