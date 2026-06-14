@@ -33,22 +33,22 @@ Revo2RobotModule::Revo2RobotModule(const std::string & variant)
   const bool left = variant == "left_hand";
   const std::string side = left ? "left" : "right";
 
-    /*
+    
   _ref_joint_order = {
       side + "_thumb_metacarpal_joint", side + "_thumb_proximal_joint", side + "_thumb_distal_joint",
       side + "_index_proximal_joint",   side + "_index_distal_joint",   
       side + "_middle_proximal_joint",  side + "_middle_distal_joint",    
       side + "_ring_proximal_joint",  side + "_ring_distal_joint",
       side + "_pinky_proximal_joint",   side + "_pinky_distal_joint"};
-    */
+    
   // Only 6 active joints
-  _ref_joint_order = {
+  /*_ref_joint_order = {
       side + "_thumb_metacarpal_joint", side + "_thumb_proximal_joint",
       side + "_index_proximal_joint",   
       side + "_middle_proximal_joint",
       side + "_ring_proximal_joint", 
       side + "_pinky_proximal_joint"};
-
+  */
   for(const auto & joint : _ref_joint_order)
   {
     _stance[joint] = {0.0};
