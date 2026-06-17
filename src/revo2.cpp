@@ -63,7 +63,35 @@ Revo2RobotModule::Revo2RobotModule(const std::string & variant)
   }
 
   _bodySensors.emplace_back("FloatingBase", side + "_base_link", sva::PTransformd::Identity());
-  _minimalSelfCollisions = {};
+  _minimalSelfCollisions = {
+    // Thumb - Index 
+    mc_rbdyn::Collision(side + "_thumb_proximal_link", side + "_index_proximal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_proximal_link", side + "_index_distal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_proximal_link", side + "_index_touch_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_distal_link", side + "_index_proximal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_distal_link", side + "_index_distal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_distal_link", side + "_index_touch_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_touch_link", side + "_index_proximal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_touch_link", side + "_index_distal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_touch_link", side + "_index_touch_link", 0.02, 0.001, 0.),
+    // Thumb - Middle
+    mc_rbdyn::Collision(side + "_thumb_proximal_link", side + "_middle_proximal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_proximal_link", side + "_middle_distal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_proximal_link", side + "_middle_touch_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_distal_link", side + "_middle_proximal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_distal_link", side + "_middle_distal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_distal_link", side + "_middle_touch_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_touch_link", side + "_middle_proximal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_touch_link", side + "_middle_distal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_touch_link", side + "_middle_touch_link", 0.02, 0.001, 0.),
+    // Thumb - Ring
+    mc_rbdyn::Collision(side + "_thumb_distal_link", side + "_ring_proximal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_distal_link", side + "_ring_distal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_distal_link", side + "_ring_touch_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_touch_link", side + "_ring_proximal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_touch_link", side + "_ring_distal_link", 0.02, 0.001, 0.),
+    mc_rbdyn::Collision(side + "_thumb_touch_link", side + "_ring_touch_link", 0.02, 0.001, 0.),
+  };
   _commonSelfCollisions = _minimalSelfCollisions;
 }
 
