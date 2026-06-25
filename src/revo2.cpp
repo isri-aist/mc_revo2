@@ -21,10 +21,10 @@ Revo2RobotModule::Revo2RobotModule(const std::string & variant)
               std::string(mc_rtc::REVO2_DESCRIPTION_PATH) + "/urdf/" + revo2Variant(variant) + ".urdf")
 {
   mc_rtc::log::success("Revo2RobotModule loaded with name: {}", name);
-  //rsdf_dir = std::string(mc_rtc::REVO2_DESCRIPTION_PATH) + "/rsdf";
+  rsdf_dir = std::string(mc_rtc::REVO2_DESCRIPTION_PATH) + "/rsdf" + "/" + revo2Variant(variant);
 
   mc_rtc::log::success("Revo2RobotModule using URDF \"{}\"", urdf_path);
-  //mc_rtc::log::success("Revo2RobotModule using path \"{}\" for rsdf", rsdf_dir);
+  mc_rtc::log::success("Revo2RobotModule using path \"{}\" for rsdf", rsdf_dir);
 
   // Revo2 is typically mounted to an arm/socket; expose fixed-base kinematics by default.
   bool fixed = true;
